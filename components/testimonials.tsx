@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Heading } from "./heading";
 import { Subheading } from "./subheading";
 import { cn } from "@/lib/utils";
 import { InViewDiv } from "./in-view-div";
-import { useMemo } from "react";
 import { TestimonialColumnContainer } from "./testimonial-column-container";
 
 export const Testimonials = () => {
@@ -28,13 +27,13 @@ const testimonials = [
     quote: "Bhartee AI has revolutionized our hiring process. The AI-driven interviews save us countless hours and consistently identify top-tier candidates.",
   },
   {
-    quote: "As a startup founder, Bhartee AI has been a game-changer. It's like having an entire HR department at your fingertips, but more efficient and cost-effective.",
+    quote: "As a startup founder, Bhartee AI has been a game-changer. It&apos;s like having an entire HR department at your fingertips, but more efficient and cost-effective.",
   },
   {
-    quote: "The bias reduction features in Bhartee AI have helped us build a more diverse and inclusive workforce. It's not just a tool; it's a partner in creating a better workplace.",
+    quote: "The bias reduction features in Bhartee AI have helped us build a more diverse and inclusive workforce. It&apos;s not just a tool; it&apos;s a partner in creating a better workplace.",
   },
   {
-    quote: "Bhartee AI's ability to conduct initial interviews and provide insightful analytics has streamlined our recruitment process significantly. It's an indispensable tool for modern HR.",
+    quote: "Bhartee AI&apos;s ability to conduct initial interviews and provide insightful analytics has streamlined our recruitment process significantly. It&apos;s an indispensable tool for modern HR.",
   },
   {
     quote: "The customized job matching feature of Bhartee AI is exceptional. It has dramatically improved the quality of candidates we interview, saving time and resources.",
@@ -43,10 +42,10 @@ const testimonials = [
     quote: "Integrating Bhartee AI with our existing ATS was seamless. The AI-powered insights have given us a competitive edge in attracting and retaining top talent.",
   },
   {
-    quote: "Bhartee AI's ability to conduct multilingual interviews has been crucial for our global hiring needs. It's expanded our talent pool significantly.",
+    quote: "Bhartee AI&apos;s ability to conduct multilingual interviews has been crucial for our global hiring needs. It&apos;s expanded our talent pool significantly.",
   },
   {
-    quote: "The predictive hiring models in Bhartee AI have improved our retention rates dramatically. It's not just filling positions; it's finding the right fit for long-term success.",
+    quote: "The predictive hiring models in Bhartee AI have improved our retention rates dramatically. It&apos;s not just filling positions; it&apos;s finding the right fit for long-term success.",
   },
 ];
 
@@ -56,8 +55,9 @@ function Testimonial({
   ...props
 }: Omit<React.ComponentPropsWithoutRef<"figure">, keyof Testimonial> &
   Testimonial) {
-  let animationDelay = useMemo(() => {
-    let possibleAnimationDelays = [
+  
+  const animationDelay = useMemo(() => {
+    const possibleAnimationDelays = [
       "0s",
       "0.1s",
       "0.2s",
@@ -83,7 +83,7 @@ function Testimonial({
     >
       <div className="flex flex-col items-start">
         <p className="text-base text-muted dark:text-muted-dark">
-          "{quote}"
+          &quot;{quote}&quot;
         </p>
       </div>
     </figure>
@@ -131,10 +131,11 @@ function splitArray<T>(array: Array<T>, numParts: number) {
 }
 
 function TestimonialGrid() {
-  let columns = splitArray(testimonials, 3);
-  let column1 = columns[0];
-  let column2 = columns[1];
-  let column3 = splitArray(columns[2], 2);
+  const columns = splitArray(testimonials, 3);
+  const column1 = columns[0];
+  const column2 = columns[1];
+  const column3 = splitArray(columns[2], 2);
+
   return (
     <InViewDiv className="relative -mx-4 mt-16 grid h-[49rem] max-h-[150vh] grid-cols-1 items-start gap-8 overflow-hidden px-4 sm:mt-20 md:grid-cols-2 lg:grid-cols-3">
       <TestimonialColumn
