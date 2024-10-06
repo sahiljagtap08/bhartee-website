@@ -1,6 +1,6 @@
 "use client";
 import { stagger, useAnimate } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 export const SkeletonTwo = () => {
   const [scope, animate] = useAnimate();
@@ -22,6 +22,7 @@ export const SkeletonTwo = () => {
     );
     setAnimating(false);
   };
+
   return (
     <div className="relative h-full w-full mt-4">
       <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-white via-white dark:from-black dark:via-black to-transparent w-full pointer-events-none" />
@@ -34,18 +35,17 @@ export const SkeletonTwo = () => {
             className="content mt-4 w-[90%] mx-auto"
           >
             <AIMessage>
-              Hello, Thanks for joining the interview for Software Engineer position. Let's begin with the interview. Can you introduce yourself and tell us about your experience?
+              Hello, Thanks for joining the interview for Software Engineer position. Let&apos;s begin with the interview. Can you introduce yourself and tell us about your experience?
             </AIMessage>
             <UserMessage>
               Hi, my name is John Doe. I have 5 years of experience working as a software engineer at XYZ company. I have experience working with various technologies such as JavaScript, React, and Node.js. I have also worked on several projects that involved building web applications and APIs.
             </UserMessage>
             <AIMessage>
-              That's great to hear. Can you tell us about a project you worked on that you are particularly proud of?
+              That&apos;s great to hear. Can you tell us about a project you worked on that you are particularly proud of?
             </AIMessage>
             <UserMessage>
               Sure! One project that I am particularly proud of is a web application that I built for a client. The client needed a platform where users could sign up, create profiles, and connect with other users. I built the application using React and Node.js, and it was a great success.
             </UserMessage>
-            
           </div>
         </div>
       </div>
@@ -60,6 +60,7 @@ const UserMessage = ({ children }: { children: React.ReactNode }) => {
     </div>
   );
 };
+
 const AIMessage = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="message bg-black text-white dark:bg-white dark:text-black p-2 sm:p-4 text-[10px] sm:text-xs my-4 rounded-md">
